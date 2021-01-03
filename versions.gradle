@@ -1,0 +1,131 @@
+ext.deps = [:]
+def versions = [:]
+versions.activity = '1.1.0'
+versions.android_gradle_plugin = '4.1.1'
+versions.appcompat = "1.2.0"
+versions.cardview = "1.0.0"
+versions.constraint_layout = "2.0.4"
+versions.core_ktx = "1.1.0"
+versions.multidex = "2.0.0"
+versions.coroutines = "1.4.1"
+versions.espresso = "3.2.0"
+versions.fragment = "1.2.1"
+versions.glide = "4.11.0"
+versions.junit = "4.13.1"
+versions.kotlin = "1.4.21"
+versions.lifecycle = "2.2.0"
+versions.material = "1.2.1"
+versions.recyclerview = "1.1.0"
+versions.viewpager2 = "1.0.0"
+versions.retrofit = "2.9.0"
+versions.room = "2.2.5"
+versions.eventbus = "3.2.0"
+versions.permissionx = "1.4.0"
+versions.refresh = "2.0.2"
+versions.immersionbar = "3.0.0"
+versions.gsy_video_player = "8.0.0"
+versions.banner = "3.4.0"
+versions.leakcanary = "2.6"
+versions.sonic = "3.1.0"
+versions.tbs = "43939"
+ext.versions = versions
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.compile_sdk = 30
+build_versions.target_sdk = 30
+build_versions.build_tools = "30.0.2"
+ext.build_versions = build_versions
+
+def deps = [:]
+
+def activity = [:]
+activity.activity_ktx = "androidx.activity:activity-ktx:$versions.activity"
+deps.activity = activity
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+
+deps.junit = "junit:junit:$versions.junit"
+deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+deps.material = "com.google.android.material:material:$versions.material"
+deps.cardview = "androidx.cardview:cardview:$versions.cardview"
+deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+deps.viewpager2 = "androidx.viewpager2:viewpager2:$versions.viewpager2"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+deps.multidex = "androidx.multidex:multidex:$versions.multidex"
+
+deps.banner_view_pager = "org.greenrobot:eventbus:$versions.banner"
+deps.eventbus = "org.greenrobot:eventbus:$versions.eventbus"
+deps.permissionx = "com.permissionx.guolindev:permissionx:$versions.permissionx"
+deps.gsy_video_player = "com.shuyu:GSYVideoPlayer:$versions.gsy_video_player"
+deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+
+def tencent = [:]
+tencent.sonic = "com.tencent.sonic:sdk:$versions.sonic"
+tencent.tbs = "com.tencent.tbs.tbssdk:sdk:$versions.tbs"
+deps.tencent = tencent
+
+def coroutines = [:]
+coroutines.core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines"
+coroutines.android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+deps.coroutines = coroutines
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+def fragment = [:]
+fragment.runtime = "androidx.fragment:fragment:$versions.fragment"
+fragment.runtime_ktx = "androidx.fragment:fragment-ktx:$versions.fragment"
+fragment.testing = "androidx.fragment:fragment-testing:$versions.fragment"
+deps.fragment = fragment
+
+def refresh = [:]
+refresh.refresh = "com.scwang.smart:refresh-layout-kernel:$versions.refresh"
+refresh.refresh_header = "com.scwang.smart:refresh-header-material:$versions.refresh"
+deps.refresh = refresh
+
+def immersionbar = [:]
+immersionbar.immersionbar = "com.gyf.immersionbar:immersionbar:$versions.immersionbar"
+immersionbar.immersionbar_ktx = "com.gyf.immersionbar:immersionbar-ktx:$versions.immersionbar"
+deps.immersionbar = immersionbar
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+def lifecycle = [:]
+lifecycle.runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
+lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.scalars = "com.squareup.retrofit2:converter-scalars:$versions.retrofit"
+deps.retrofit = retrofit
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.ktx = "androidx.room:room-ktx:$versions.room"
+deps.room = room
+
+ext.deps = deps
+
+def addRepos(RepositoryHandler handler) {
+    handler.maven { url 'https://maven.aliyun.com/repository/google' }
+    handler.maven { url 'https://maven.aliyun.com/repository/public' }
+    handler.maven { url 'https://www.jitpack.io' }
+}
+ext.addRepos = this.&addRepos
