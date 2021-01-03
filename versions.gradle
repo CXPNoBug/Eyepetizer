@@ -1,7 +1,7 @@
 ext.deps = [:]
 def versions = [:]
-versions.activity = '1.1.0'
-versions.android_gradle_plugin = '4.1.1'
+versions.activity = "1.1.0"
+versions.android_gradle_plugin = "4.1.1"
 versions.appcompat = "1.2.0"
 versions.cardview = "1.0.0"
 versions.constraint_layout = "2.0.4"
@@ -28,6 +28,7 @@ versions.banner = "3.4.0"
 versions.leakcanary = "2.6"
 versions.sonic = "3.1.0"
 versions.tbs = "43939"
+versions.ben_manes_plugin = "0.36.0"
 ext.versions = versions
 
 def build_versions = [:]
@@ -60,6 +61,8 @@ deps.eventbus = "org.greenrobot:eventbus:$versions.eventbus"
 deps.permissionx = "com.permissionx.guolindev:permissionx:$versions.permissionx"
 deps.gsy_video_player = "com.shuyu:GSYVideoPlayer:$versions.gsy_video_player"
 deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+
+deps.ben_manes_plugin = "com.github.ben-manes:gradle-versions-plugin:$versions.ben_manes_plugin"
 
 def tencent = [:]
 tencent.sonic = "com.tencent.sonic:sdk:$versions.sonic"
